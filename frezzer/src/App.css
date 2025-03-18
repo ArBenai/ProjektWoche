@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  
+}
+.container {
+  margin-top: 10rem;
+  background-image: url("../public/frezzer-room.png");
+  height: 900px;
+  width: 100%;
+}
+
+/* App.css */
+
+/* Container */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.max-w-7xl {
+  max-width: 7xl;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Heading */
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+/* Message Box */
+.fixed {
+  position: fixed;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.bg-red-500 {
+  background-color: rgb(245, 101, 101);
+}
+
+.bg-green-500 {
+  background-color: rgb(72, 187, 120);
+}
+
+.text-white {
+  color: rgb(0, 0, 0);
+}
+
+/* Main Container */
+/* komplett durchsichtig  */
+.bg-white {
+  background-color: transparent;
+}
+
+.rounded-xl {
+  border-radius: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+/* Left Side */
+.w-2/3 {
+  width: 66.66%;
+}
+
+.space-y-4 {
+  margin-bottom: 1rem;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.bg-blue-50 {
+  background-color: rgb(235, 248, 255, 0.5);
+}
+
+.bg-yellow-50 {
+  background-color: rgb(250, 240, 137, 0.5);
+}
+
+.bg-red-50 {
+  background-color: rgb(254, 178, 178, 0.5);
+}
+
+.bg-green-50 {
+  background-color: rgb(198, 246, 213, 0.5);
+}
+
+.bg-green-100 {
+  background-color: rgb(154, 230, 180, 0.5);
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* Right Side */
+.w-1/3 {
+  width: 33.33%;
+}
+
+.bg-orange-50 {
+  background-color: rgb(254, 215, 170, 0.5);
+}
+
+.bg-purple-50 {
+  background-color: rgb(233, 216, 253, 0.5);
+}
+
+.bg-blue-100 {
+  background-color: rgb(235, 248, 255, 0.5);
+}
+
+/* Draggable Items */
+.grid {
+  display: grid;
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.transform {
+  transform: scale(1);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.transition-transform {
+  transition: transform 0.2s ease-in-out;
+}
