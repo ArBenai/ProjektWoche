@@ -6,13 +6,12 @@
   
 }
 .container {
-  margin-top: 10rem;
+  margin-top: 3rem;
   background-image: url("../public/frezzer-room.png");
   height: 900px;
   width: 100%;
 }
 
-/* App.css */
 
 /* Container */
 .min-h-screen {
