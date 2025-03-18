@@ -10,7 +10,7 @@ const App = () => {
   const [compartments, setCompartments] = useState({
     frozen: [],
     ready: [],
-    fishAndMeat: [],
+    fishMeatDairy: [],
     fruit: [],
     vegetable: [],
     egg: [],
@@ -21,7 +21,7 @@ const App = () => {
   // 10 zufällige Items
   useEffect(() => {
     setItems(getRandomItems());
-  }, []); 
+  }, []);
 
   const handleDragStart = (item) => {
     setDraggingItem(item);
@@ -43,7 +43,7 @@ const App = () => {
 
     setTimeout(() => {
       setShowMessage(null);
-    }, 2000);
+    }, 1000);
 
     setDraggingItem(null);
   };
@@ -56,12 +56,8 @@ const App = () => {
     return (
       <div className="flex flex-wrap gap-2">
         {items.map((item) => (
-          <div key={item.id} className="w-12 h-12">
-            <img
-              src={item.image}
-              className="w-full h-full object-cover rounded"
-              title={item.name}
-            />
+          <div key={item.id}>
+            <img src={item.image} title={item.name} />
           </div>
         ))}
       </div>
@@ -71,25 +67,19 @@ const App = () => {
   return (
     <div className="container">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Kühlschrank einräumen aber Dalli
-        </h1>
+        <h1>Kühlschrank einräumen aber Dalli</h1>
 
         {showMessage && (
-          <div
-            className={`fixed top-4 right-4 p-4 rounded-lg ${
-              showMessage.isError ? "bg-red-500" : "bg-green-500"
-            } text-white`}
-          >
+          <div className={`fixed ${showMessage.isError ? "error" : "check"}`}>
             {showMessage.text}
           </div>
         )}
 
-        <div className="bg-white rounded-xl shadow-2xl p-8 flex gap-8">
+        <div className="fridge">
           {/* Left Side */}
           <div className="leftSide">
             <div
-              className="h-40 bg-blue-50 rounded-lg p-4 cursor-pointer"
+              className="frozenMeal dropbox "
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("frozen")}
             >
@@ -98,7 +88,7 @@ const App = () => {
             </div>
 
             <div
-              className="h-40 bg-yellow-50 rounded-lg p-4 cursor-pointer"
+              className="readyMeal dropbox"
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("ready")}
             >
@@ -107,17 +97,17 @@ const App = () => {
             </div>
 
             <div
-              className="h-40 bg-red-50 rounded-lg p-4 cursor-pointer"
+              className="meatFishDairy dropbox "
               onDragOver={handleDragOver}
-              onDrop={() => handleDrop("fishAndMeat")}
+              onDrop={() => handleDrop("fishMeatDairy")}
             >
               <h2 className="text-xl font-semibold mb-2">Meat, Fish & Dairy</h2>
-              {renderCompartmentItems(compartments.fishAndMeat)}
+              {renderCompartmentItems(compartments.fishMeatDairy)}
             </div>
 
-            <div className="flex gap-4">
+            <div className="fruitAndVeggie">
               <div
-                className="flex-1 h-40 bg-green-50 rounded-lg p-4 cursor-pointer"
+                className="fruits dropbox  "
                 onDragOver={handleDragOver}
                 onDrop={() => handleDrop("fruit")}
               >
@@ -126,7 +116,7 @@ const App = () => {
               </div>
 
               <div
-                className="flex-1 h-40 bg-green-100 rounded-lg p-4 cursor-pointer"
+                className="veggie dropbox "
                 onDragOver={handleDragOver}
                 onDrop={() => handleDrop("vegetable")}
               >
@@ -139,7 +129,7 @@ const App = () => {
           {/* Right Side */}
           <div className="rightSide">
             <div
-              className="h-40 bg-orange-50 rounded-lg p-4 cursor-pointer"
+              className="eggs "
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("egg")}
             >
@@ -148,16 +138,18 @@ const App = () => {
             </div>
 
             <div
-              className="h-40 bg-purple-50 rounded-lg p-4 cursor-pointer"
+              className="sauces"
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("sauce")}
             >
-              <h2 className="text-xl font-semibold mb-2">Sauces</h2>
+              <h2 className="text-xl font-semibold mb-2">
+                Sauces & Canned Food
+              </h2>
               {renderCompartmentItems(compartments.sauce)}
             </div>
 
             <div
-              className="h-40 bg-blue-100 rounded-lg p-4 cursor-pointer"
+              className="drinks"
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("drink")}
             >
@@ -168,18 +160,18 @@ const App = () => {
         </div>
 
         {/* Draggable Items */}
-        <div className="itemCards grid grid-cols-10 gap-1">
+        <div className="itemCards grid grid-cols-10 gap-3">
           {items.map((item) => (
             <div
               key={item.id}
               draggable
               onDragStart={() => handleDragStart(item)}
-              className="bg-white rounded-lg p-4 shadow-md cursor-pointer transform hover:scale-105 transition-transform"
+              className="bg-white p-4 shadow-md cursor-pointer transform hover:scale-105 transition-transform"
             >
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-full h-32 object-cover rounded-lg mb-2"
+                className="w-full h-32 object-cover mb-2"
               />
               <p className="text-center font-medium">{item.name}</p>
             </div>
