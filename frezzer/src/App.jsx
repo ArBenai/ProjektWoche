@@ -87,7 +87,7 @@ const App = () => {
 
         <div className="bg-white rounded-xl shadow-2xl p-8 flex gap-8">
           {/* Left Side */}
-          <div className="w-2/3 space-y-4">
+          <div className="leftSide">
             <div
               className="h-40 bg-blue-50 rounded-lg p-4 cursor-pointer"
               onDragOver={handleDragOver}
@@ -137,7 +137,7 @@ const App = () => {
           </div>
 
           {/* Right Side */}
-          <div className="w-1/3 space-y-4">
+          <div className="rightSide">
             <div
               className="h-40 bg-orange-50 rounded-lg p-4 cursor-pointer"
               onDragOver={handleDragOver}
@@ -168,7 +168,7 @@ const App = () => {
         </div>
 
         {/* Draggable Items */}
-        <div className="mt-8 grid grid-cols-4 gap-4">
+        <div className="itemCards grid grid-cols-10 gap-1">
           {items.map((item) => (
             <div
               key={item.id}
