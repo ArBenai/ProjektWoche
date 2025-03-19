@@ -133,7 +133,7 @@ const InsideFridge = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container ">
       <ProgressBar progress={progress} />
       {/* Anzeige der Fehlversuche */}
       <WrongItems wrongAttempts={incorrectAttempts} />
