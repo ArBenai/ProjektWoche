@@ -1,0 +1,32 @@
+
+/* Container für die Fortschrittsanzeige */
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0; /* Hellgrauer Hintergrund */
+    border-radius: 5px; /* Abgerundete Ecken */
+    overflow: hidden; /* Inhalt, der über den Rand hinausgeht, wird abgeschnitten */
+    margin: 10px 0; /* Abstand oben und unten */
+    position: relative; /* Position für den Text */
+  }
+  
+  /* Fortschrittsbalken */
+  .progress {
+    height: 20px; /* Höhe des Fortschrittsbalkens */
+    width: 0; /* Initiale Breite des Fortschrittsbalkens */
+    transition: width 0.5s, background-color 0.5s; /* Übergangseffekt für die Breite und Farbe */
+    display: flex; /* Flexbox für zentrierten Text */
+    align-items: center; /* Zentrierung des Textes */
+    justify-content: center; /* Zentrierung des Textes */
+  }
+  
+  /* Text innerhalb des Fortschrittsbalkens */
+  .progress-text {
+    color: white; /* Farbe des Textes */
+    font-weight: bold; /* Fettschrift */
+  }
+  
+  /* Icon innerhalb des Fortschrittsbalkens */
+  .progress-icon {
+    margin-left: 10px; /* Abstand zum Text */
+    font-size: 1.5rem; /* Größe des Icons */
+  }

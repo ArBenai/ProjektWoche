@@ -1,0 +1,12 @@
+.wrong-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .wrong-item {
+    font-size: 48px;
+    color: red;
+    margin: 0 10px;
+  }

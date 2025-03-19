@@ -2,6 +2,8 @@
 .container {
     margin-top: 3rem;
     background-image: url("../public/frezzer-room.png");
+    background-size: contain;
+    background-repeat: no-repeat;
     height: 950px;
     width: 100%;
   }

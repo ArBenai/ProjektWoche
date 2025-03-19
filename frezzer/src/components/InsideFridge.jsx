@@ -1,16 +1,12 @@
-import "../styles/fridgeStyle.css";
 import React, { useState, useEffect } from "react";
+import "../styles/fridgeStyle.css";
 import { getRandomItems } from "./items";
 import Cards from "./cards";
-
-
-{
-  /* Left Side */
-}
+import ProgressBar from "./ProgressBar";
+import WrongItems from "./WrongItems"; // Importiere die WrongItems-Komponente
 
 const InsideFridge = () => {
   const [items, setItems] = useState([]);
-
   const [draggingItem, setDraggingItem] = useState(null);
   const [showMessage, setShowMessage] = useState(null);
   const [compartments, setCompartments] = useState({
@@ -24,7 +20,11 @@ const InsideFridge = () => {
     drink: [],
   });
 
-  // 10 zufällige Items
+  const [incorrectAttempts, setIncorrectAttempts] = useState(0); // Zähler für falsche Versuche
+  const [correctDrops, setCorrectDrops] = useState(0); // Zähler für richtige Drops
+  const [gameOver, setGameOver] = useState(false); // Zustand, um das Spiel zu beenden
+
+  // 10 zufällige Items laden
   useEffect(() => {
     setItems(getRandomItems());
   }, []);
@@ -34,7 +34,7 @@ const InsideFridge = () => {
   };
 
   const handleDrop = (compartmentType) => {
-    if (!draggingItem) return;
+    if (gameOver || !draggingItem) return; // Verhindere Drop, wenn das Spiel vorbei ist
 
     if (draggingItem.type === compartmentType) {
       setShowMessage({ text: "Correct placement!", isError: false });
@@ -43,8 +43,26 @@ const InsideFridge = () => {
         ...compartments,
         [compartmentType]: [...compartments[compartmentType], draggingItem],
       });
+
+      // Zähler für richtige Drops erhöhen
+      setCorrectDrops((prev) => prev + 1);
     } else {
-      setShowMessage({ text: "Wrong compartment! Try again.", isError: true });
+      setIncorrectAttempts((prev) => {
+        const newAttempts = prev + 1;
+        if (newAttempts >= 3) {
+          setGameOver(true); // Beende das Spiel, wenn mehr als 3 falsche Versuche
+          setShowMessage({
+            text: "Game Over! Too many wrong attempts.",
+            isError: true,
+          });
+        } else {
+          setShowMessage({
+            text: "Wrong compartment! Try again.",
+            isError: true,
+          });
+        }
+        return newAttempts;
+      });
     }
 
     setTimeout(() => {
@@ -70,17 +88,15 @@ const InsideFridge = () => {
     );
   };
 
+  // Berechne den Fortschritt basierend auf den richtigen Drops
+  const progress = Math.min((correctDrops / items.length) * 100, 100); // Fortschritt basierend auf den korrekten Drops
+
   return (
     <div className="container">
+      <ProgressBar progress={progress} />
+      {/* Anzeige der Fehlversuche */}
+      <WrongItems wrongAttempts={incorrectAttempts} />
       <div className="max-w-7xl mx-auto">
-        <h1>Kühlschrank einräumen aber Dalli</h1>
-
-        {showMessage && (
-          <div className={`fixed ${showMessage.isError ? "error" : "check"}`}>
-            {showMessage.text}
-          </div>
-        )}
-
         <div className="fridge">
           {/* Left Side */}
           <div className="leftSide">
@@ -161,6 +177,13 @@ const InsideFridge = () => {
             </div>
           </div>
         </div>
+
+        {/* Message */}
+        {showMessage && (
+          <div className={`fixed ${showMessage.isError ? "error" : "check"}`}>
+            {showMessage.text}
+          </div>
+        )}
 
         {/* Draggable Items */}
         <Cards items={items} handleDragStart={handleDragStart} />
