@@ -178,7 +178,7 @@ const allItems = [
   {
     id: 26,
     name: "Ketchup",
-    type: "sauce",
+    type: "sauceAndCanned",
     imageUrl: "https://example.com/images/ketchup.jpg",
     timestamp: 20,
   },

@@ -1,7 +1,8 @@
+import "../styles/fridgeStyle.css";
 import React, { useState, useEffect } from "react";
-import "../App.css";
 import { getRandomItems } from "./items";
 import Cards from "./cards";
+
 
 {
   /* Left Side */
@@ -144,7 +145,7 @@ const InsideFridge = () => {
             <div
               className="sauces"
               onDragOver={handleDragOver}
-              onDrop={() => handleDrop("sauce")}
+              onDrop={() => handleDrop("sauceAndCanned")}
             >
               <h2 className="textFridge">Sauces & Canned Food</h2>
               {renderCompartmentItems(compartments.sauce)}
