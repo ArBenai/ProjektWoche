@@ -135,10 +135,10 @@ const InsideFridge = () => {
   return (
     <div className="container ">
       <ProgressBar progress={progress} />
-      {/* Anzeige der Fehlversuche */}
       <WrongItems wrongAttempts={incorrectAttempts} />
+  
       <div className="max-w-7xl mx-auto">
-        <div className="fridge">
+      <div className="fridge">
           {/* Left Side */}
           <div className="leftSide">
             <div
@@ -229,8 +229,15 @@ const InsideFridge = () => {
         {/* Draggable Items */}
         <Cards items={items} handleDragStart={handleDragStart} />
       </div>
+  
+      {/* Message */}
+      {showMessage && (
+        <div className={`fixed ${showMessage.isError ? "error" : "check"}`}>
+          {showMessage.text}
+        </div>
+      )}
     </div>
   );
-};
+}
 
 export default InsideFridge;
