@@ -20,13 +20,16 @@ h1{
   margin-bottom: 2rem;
   text-align: center;
 }
-h2{
+.textFridge{
   font-size: 1.4rem;
   font-weight: 100;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 }
-
+.cardText{
+  text-align: center;
+  font-weight: 400;
+}
 /* Message Box */
 .fixed {
   position: fixed;

@@ -83,7 +83,7 @@ const App = () => {
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("frozen")}
             >
-              <h2 className="text-xl font-semibold mb-2">Frozen Items</h2>
+              <h2 className="textFridge">Frozen Items</h2>
               {renderCompartmentItems(compartments.frozen)}
             </div>
 
@@ -92,7 +92,7 @@ const App = () => {
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("ready")}
             >
-              <h2 className="text-xl font-semibold mb-2">Ready Meals</h2>
+              <h2 className="textFridge">Ready Meals</h2>
               {renderCompartmentItems(compartments.ready)}
             </div>
 
@@ -101,7 +101,7 @@ const App = () => {
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("fishMeatDairy")}
             >
-              <h2 className="text-xl font-semibold mb-2">Meat, Fish & Dairy</h2>
+              <h2 className="textFridge">Meat, Fish & Dairy</h2>
               {renderCompartmentItems(compartments.fishMeatDairy)}
             </div>
 
@@ -111,7 +111,7 @@ const App = () => {
                 onDragOver={handleDragOver}
                 onDrop={() => handleDrop("fruit")}
               >
-                <h2 className="text-xl font-semibold mb-2">Fruits</h2>
+                <h2 className="textFridge">Fruits</h2>
                 {renderCompartmentItems(compartments.fruit)}
               </div>
 
@@ -120,7 +120,7 @@ const App = () => {
                 onDragOver={handleDragOver}
                 onDrop={() => handleDrop("vegetable")}
               >
-                <h2 className="text-xl font-semibold mb-2">Vegetables</h2>
+                <h2 className="textFridge">Vegetables</h2>
                 {renderCompartmentItems(compartments.vegetable)}
               </div>
             </div>
@@ -133,7 +133,7 @@ const App = () => {
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("egg")}
             >
-              <h2 className="text-xl font-semibold mb-2">Eggs</h2>
+              <h2 className="textFridge">Eggs</h2>
               {renderCompartmentItems(compartments.egg)}
             </div>
 
@@ -142,7 +142,7 @@ const App = () => {
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("sauce")}
             >
-              <h2 className="text-xl font-semibold mb-2">
+              <h2 className="textFridge">
                 Sauces & Canned Food
               </h2>
               {renderCompartmentItems(compartments.sauce)}
@@ -153,7 +153,7 @@ const App = () => {
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("drink")}
             >
-              <h2 className="text-xl font-semibold mb-2">Drink</h2>
+              <h2 className="textFridge">Drink</h2>
               {renderCompartmentItems(compartments.drink)}
             </div>
           </div>
@@ -173,7 +173,7 @@ const App = () => {
                 alt={item.name}
                 className="w-full h-32 object-cover mb-2"
               />
-              <p className="text-center font-medium">{item.name}</p>
+              <p className="cardText">{item.name}</p>
             </div>
           ))}
         </div>
