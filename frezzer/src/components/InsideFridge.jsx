@@ -4,6 +4,7 @@ import { getRandomItems } from "./items";
 import Cards from "./cards";
 import ProgressBar from "./ProgressBar";
 import WrongItems from "./WrongItems"; // Importiere die WrongItems-Komponente
+import GameOver from "./GameOver"; // Importiere die GameOver-Komponente
 
 const InsideFridge = () => {
   const [items, setItems] = useState([]);
@@ -23,6 +24,28 @@ const InsideFridge = () => {
   const [incorrectAttempts, setIncorrectAttempts] = useState(0); // Zähler für falsche Versuche
   const [correctDrops, setCorrectDrops] = useState(0); // Zähler für richtige Drops
   const [gameOver, setGameOver] = useState(false); // Zustand, um das Spiel zu beenden
+  const [gameWon, setGameWon] = useState(false); // Zustand, um das Spiel zu gewinnen
+  const [score, setScore] = useState(0); // Punktestand
+
+  // Neustart des Spiels
+  const restartGame = () => {
+    setIncorrectAttempts(0);
+    setCorrectDrops(0);
+    setItems(getRandomItems()); // Erstelle neue Items
+    setCompartments({
+      frozen: [],
+      ready: [],
+      fishMeatDairy: [],
+      fruit: [],
+      vegetable: [],
+      egg: [],
+      sauce: [],
+      drink: [],
+    });
+    setGameOver(false);
+    setGameWon(false); // Spiel nicht gewonnen nach dem Neustart
+    setScore(0);
+  };
 
   // 10 zufällige Items laden
   useEffect(() => {
@@ -34,7 +57,7 @@ const InsideFridge = () => {
   };
 
   const handleDrop = (compartmentType) => {
-    if (gameOver || !draggingItem) return; // Verhindere Drop, wenn das Spiel vorbei ist
+    if (gameOver || gameWon || !draggingItem) return; // Verhindere Drop, wenn das Spiel vorbei ist oder gewonnen wurde
 
     if (draggingItem.type === compartmentType) {
       setShowMessage({ text: "Correct placement!", isError: false });
@@ -46,6 +69,7 @@ const InsideFridge = () => {
 
       // Zähler für richtige Drops erhöhen
       setCorrectDrops((prev) => prev + 1);
+      setScore((prev) => prev + 10); // Erhöhe den Score bei einem richtigen Drop
     } else {
       setIncorrectAttempts((prev) => {
         const newAttempts = prev + 1;
@@ -90,6 +114,23 @@ const InsideFridge = () => {
 
   // Berechne den Fortschritt basierend auf den richtigen Drops
   const progress = Math.min((correctDrops / items.length) * 100, 100); // Fortschritt basierend auf den korrekten Drops
+
+  // Wenn der Fortschritt 100% erreicht, beende das Spiel und zeige "You Win"
+  useEffect(() => {
+    if (progress === 100) {
+      setGameWon(true); // Spiel gewonnen
+      setShowMessage({ text: "Congratulations! You've won!", isError: false });
+    }
+  }, [progress]);
+
+  // Wenn das Spiel vorbei ist oder gewonnen wurde, zeige die GameOver- oder Win-Nachricht
+  if (gameOver) {
+    return <GameOver score={score} onRestart={restartGame} message="Zu viele falsche Versuche!" />;
+  }
+
+  if (gameWon) {
+    return <GameOver score={score} onRestart={restartGame} message="Herzlichen Glückwunsch! Du hast gewonnen!" />;
+  }
 
   return (
     <div className="container">
