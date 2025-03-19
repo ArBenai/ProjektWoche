@@ -1,27 +1,36 @@
-import React, { useState } from 'react';
-import StartScreen from './components/StartScreen';
-import InsideFridge from './components/InsideFridge';
-import "./App.css";
 
+
+import React, { useState } from 'react';
+import StartScreen from './components/StartScreen'; // Importiere die StartScreen-Komponente
+import InsideFridge from './components/InsideFridge'; // Importiere die InsideFridge-Komponente
+import Countdown from './components/Countdown'; // Importiere die Countdown-Komponente
 
 const App = () => {
-  // Zustand für die Anzeige der Komponenten
   const [isStarted, setIsStarted] = useState(false);
+  const [isGameStarted, setIsGameStarted] = useState(false);
 
-  // Funktion, um die Anzeige zu wechseln
   const handleStart = () => {
-    setIsStarted(true);
+    setIsStarted(true); // Zeige das Spiel an
+    setIsGameStarted(true); // Starte den Countdown
+  };
+
+  const handleCountdownEnd = () => {
+    console.log("Countdown beendet");
+    setIsGameStarted(false); // Stoppe den Countdown und wechsle zu InsideFridge
   };
 
   return (
-    <>
+    <div>
       {!isStarted ? (
         <StartScreen onStart={handleStart} />
+      ) : isGameStarted ? (
+        <Countdown initialCount={3} onCountdownEnd={handleCountdownEnd} /> // Beispiel mit 5 Sekunden Countdown
       ) : (
         <InsideFridge />
       )}
-    </>
+    </div>
   );
 };
 
 export default App;
+

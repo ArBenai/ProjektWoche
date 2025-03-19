@@ -1,0 +1,40 @@
+/* Container für den Countdown, der den gesamten Bildschirm abdeckt und zentriert ist */
+.countdown-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Höherer z-index, um sicherzustellen, dass der Container über anderen Elementen liegt */
+  }
+  
+  /* Hintergrund, der geblurrt wird */
+  .countdown-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Halbtransparenter schwarzer Hintergrund */
+    z-index: 9999; /* Niedrigerer z-index, um sicherzustellen, dass der Hintergrund unter dem Container liegt */
+  }
+  
+  /* Card-Stil für den Countdown-Text */
+  .countdown-card {
+    background: rgba(250, 248, 248, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 10001; /* Höherer z-index, um sicherzustellen, dass die Card über dem Container liegt */
+  }
+  
+  /* Stil für den Countdown-Text */
+  .countdown {
+    font-size: 5rem;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+  }
