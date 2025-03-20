@@ -163,7 +163,7 @@ const InsideFridge = () => {
 
             <div className="fruitAndVeggie">
               <div
-                className="fruits dropbox"
+                className="fruits"
                 onDragOver={handleDragOver}
                 onDrop={() => handleDrop("fruit")}
               >
@@ -172,7 +172,7 @@ const InsideFridge = () => {
               </div>
 
               <div
-                className="veggie dropbox"
+                className="veggie"
                 onDragOver={handleDragOver}
                 onDrop={() => handleDrop("vegetable")}
               >
@@ -192,9 +192,9 @@ const InsideFridge = () => {
             </div>
 
             <div
-              className="sauces"
+              className="sauceAndCanned"
               onDragOver={handleDragOver}
-              onDrop={() => handleDrop("sauce")}
+              onDrop={() => handleDrop("sauceAndCanned")}
             >
               <h2>Sauces & Canned Food</h2>
               {renderCompartmentItems(compartments.sauce)}
@@ -205,7 +205,7 @@ const InsideFridge = () => {
               onDragOver={handleDragOver}
               onDrop={() => handleDrop("drink")}
             >
-              <h2>Drink</h2>
+              <h2>Drinks</h2>
               {renderCompartmentItems(compartments.drink)}
             </div>
           </div>
