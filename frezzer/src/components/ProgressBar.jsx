@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/ProgressBar.css'; // Importiere die Styles für die ProgressBar
+import '../styles/ProgressBar.css'; 
 
 // Funktion zur Interpolation der Farbe basierend auf dem Fortschritt
 const interpolateColor = (progress) => {
