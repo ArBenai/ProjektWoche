@@ -1,33 +1,50 @@
+
 .game-over {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     padding: 20px;
-    background-color: #f8d7da; /* Hellroter Hintergrund */
-    color: #721c24; /* Dunkelrote Schriftfarbe */
-    border: 1px solid #f5c6cb; /* Hellrote Umrandung */
-    border-radius: 5px; /* Abgerundete Ecken */
-    margin: 20px;
+    background-image:url("./gameover.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #721c24; 
+    border: 5px solid #f5c6cb; 
+    border-radius: 5px; 
+  }
+
+  .game-over-content {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 5rem;
+    border-radius: 15px; 
   }
   
   .game-over h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
   }
   
   .game-over p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
   
   .game-over button {
     padding: 10px 20px;
     font-size: 1rem;
     color: white;
-    background-color: #007bff; /* Blaue Hintergrundfarbe */
-    border: none;
-    border-radius: 5px;
+    background-color: orange; 
+    border-radius: 25px;
+    height: 4rem;
+    width: 8rem;
+    color: black;
+    font-weight: 900;
     cursor: pointer;
   }
   
   .game-over button:hover {
-    background-color: #0056b3; /* Dunklere blaue Hintergrundfarbe beim Hover */
+    background-color: green; 
+    color: white;
   }
