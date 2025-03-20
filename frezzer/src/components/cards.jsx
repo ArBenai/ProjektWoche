@@ -1,31 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import '../styles/ItemCards.css'
 
 const Cards = ({ items, handleDragStart }) => {
-    return (
-      <div className="itemCards grid grid-cols-10 gap-3">
-        {items.length > 0 ? (
-          items.map((item) => (
-            <div
-              key={item.id}
-              draggable
-              onDragStart={() => handleDragStart(item)}
-              className="bg-white p-4 shadow-md cursor-pointer transform hover:scale-105 transition-transform"
-            >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-32 object-cover mb-2"
-              />
-              <p className="cardText">{item.name}</p>
-              <p>Verbleibende Zeit für dieses Item: {item.timestamp} Sekunden</p>
-            </div>
-          ))
-        ) : (
-          <p>Keine Items verfügbar</p> // Zeigt eine Nachricht an, falls keine Items vorhanden sind
-        )}
-      </div>
-    );
-  };
-  
-  export default Cards;
-  
+  return (
+    <div className="cardContainer">
+      {items.map((item) => (
+        <div
+          key={item.id}
+          className={`singleCard ${item.type}`} // Dynamische Zuweisung der Kategorie-Klasse
+          draggable
+          onDragStart={() => handleDragStart(item)}
+        >
+          <img src={item.image} alt={item.name} />
+          <p>{item.name}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Cards;

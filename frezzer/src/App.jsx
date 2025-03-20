@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import StartScreen from './components/StartScreen'; // Importiere die StartScreen-Komponente
 import InsideFridge from './components/InsideFridge'; // Importiere die InsideFridge-Komponente
