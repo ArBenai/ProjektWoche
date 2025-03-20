@@ -1,0 +1,36 @@
+
+.singleCard {
+  border: 2px solid gold;
+  width: 150px; /* Setze eine feste Breite für die Karten */
+  height: 200px; /* Setze eine feste Höhe für die Karten */
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer; /* Zeigt an, dass es sich um ein ziehbares Element handelt */
+  transition: transform 0.3s ease;
+}
+
+.singleCard img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.singleCard:hover {
+  transform: scale(1.05); /* Vergrößert die Karte leicht bei Hover */
+}
+
+/* Draggable Items */
+.itemCards {
+  top: 14rem;
+  width: 30rem; 
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  left: 10rem;
+  align-items: center;
+  justify-content: center;
+  max-height: calc(100vh - 12rem); 
+  overflow-y: auto; 
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/ItemCards.css'
+import '../styles/Cards.css'
 
 const Cards = ({ items, handleDragStart }) => {
   return (
