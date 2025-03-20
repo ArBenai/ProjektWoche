@@ -4,6 +4,7 @@ import React from 'react';
 const StartScreen = ({ onStart }) => {
   return (
     <div className="start-screen">
+      <img className='einkaufswagen' src="./einkauf.png" alt="" />
       <div className="start-screen-card">
         <h1>Du hast eingekauft!</h1>
         <p>

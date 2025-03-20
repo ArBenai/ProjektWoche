@@ -1,8 +1,7 @@
-
-import React, { useState } from 'react';
-import StartScreen from './components/StartScreen'; // Importiere die StartScreen-Komponente
-import InsideFridge from './components/InsideFridge'; // Importiere die InsideFridge-Komponente
-import Countdown from './components/Countdown'; // Importiere die Countdown-Komponente
+import React, { useState } from "react";
+import StartScreen from "./components/StartScreen"; // Importiere die StartScreen-Komponente
+import InsideFridge from "./components/InsideFridge"; // Importiere die InsideFridge-Komponente
+import Countdown from "./components/Countdown"; // Importiere die Countdown-Komponente
 
 const App = () => {
   const [isStarted, setIsStarted] = useState(false);
@@ -20,17 +19,15 @@ const App = () => {
 
   return (
     <div>
-    {/* {!isStarted ? (
+      {!isStarted ? (
         <StartScreen onStart={handleStart} />
       ) : isGameStarted ? (
         <Countdown initialCount={3} onCountdownEnd={handleCountdownEnd} /> // Beispiel mit 5 Sekunden Countdown
       ) : (
         <InsideFridge />
-      )} */}
-      <InsideFridge />
+      )}
     </div>
   );
 };
 
 export default App;
-
