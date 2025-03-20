@@ -27,7 +27,7 @@ const ProgressBar = ({ progress }) => {
   const progressColor = interpolateColor(Math.min(progress, 100));
 
   let icons = '';
-  let displayProgress = progress;
+  let displayProgress = Math.round(progress); 
 
   if (progress > 100) {
     icons = '⭐⭐⭐'; // Drei Sterne
