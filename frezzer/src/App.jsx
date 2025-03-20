@@ -20,13 +20,14 @@ const App = () => {
 
   return (
     <div>
-      {!isStarted ? (
+    {/* {!isStarted ? (
         <StartScreen onStart={handleStart} />
       ) : isGameStarted ? (
         <Countdown initialCount={3} onCountdownEnd={handleCountdownEnd} /> // Beispiel mit 5 Sekunden Countdown
       ) : (
         <InsideFridge />
-      )}
+      )} */}
+      <InsideFridge />
     </div>
   );
 };

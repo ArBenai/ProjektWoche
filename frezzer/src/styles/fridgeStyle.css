@@ -1,164 +1,225 @@
-/* Container */
+  
+  /* Container */
 .container {
-    margin-top: 3rem;
-    background-image: url("../public/frezzer-room.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 950px;
-    width: 100%;
-  }
+  margin-top: 3rem;
+  background-image: url("../public/frezzer-room.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: right center; /* Kühlschrank nach rechts
+  /* background-position: right 2%; */
+  height: 980px;
+  width: 80%;
+  margin-left: auto; /* Schiebt ihn nach rechts */
+  margin-right: 2rem;
+  position: fixed; /* Fixiert das Bild oben */
+  top: 0; /* Oben anheften */
+  /*left: 50%; /* Falls nötig, zentrieren */
+  /* right:-20px; */
+  left: 1000px;
+  transform: translateX(-50%);
+  z-index: 10; /* Sicherstellen, dass es über dem Scrollbereich bleibt */
+}
+
+/* Heading */
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.textFridge{
+  font-size: 1.4rem;
+  font-weight: 100;
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+.cardText{
+  text-align: center;
+  font-weight: 400;
+}
+/* Message Box */
+.fixed {
+  position: fixed;
+  top: 1rem;
+  right: calc(var(--spacing) * 5);
+  padding: 1rem;
+}
+
+.error {
+  background-color: rgb(255, 70, 70);
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.check {
+  background-color: rgb(40, 200, 120);
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+/*  */
+
+/* komplett durchsichtig  */
+.fridge {
+  background-color: transparent;
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  justify-content: flex-end; /* Kühlschrank nach rechts verschieben */
+  /* right: 0; */
+}
+
+/* Left Side */
+.leftSide {
+  margin-top: 2rem;
+  width: 66%;
+  margin-bottom: 1rem;
+  margin-left: -15rem; /* Verschiebt den ganzen Block weiter nach links */
+}
+
+.dropbox {
+  height: 10rem;
+  width: 26rem;
+  margin-left: 12rem;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: calc(var(--spacing) * 5);
+}
+
+.frozenMeal {
+  background-color: rgb(235, 248, 255, 0.1);
+  /* margin-left:auto; */
+  /* left: 10rem; */
+  /* align-self: flex-start; */
+  /* transform: translateX(-20px); */
+  margin-left:auto;
+  margin-bottom: 1rem;
+  margin-top: -3rem;
+  height: 10rem;
+  width: 32rem;
+}
+
+.readyMeal {
+  background-color: rgb(250, 240, 137, 0.1);
+  margin-left:auto;
+  margin-bottom: 1rem;
+  height: 9rem;
+  width: 32rem;
+}
+
+.meatFishDairy {
+  background-color: rgb(254, 178, 178, 0.1);
+  /* height: 9rem; */
+
+  margin-left:auto;
+  height: 9rem;
+  width: 32rem;
+}
+
+.fruitAndVeggie {
+  display: flex;
+  width: 75%;
+  justify-content: space-between; /* Verteilt die Elemente */
+  margin-left:auto;
+  margin-top: 4rem;
   
-  /* Heading */
-  h1{
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  .textFridge{
-    font-size: 1.4rem;
-    font-weight: 100;
-    text-align: center;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-  }
-  .cardText{
-    text-align: center;
-    font-weight: 400;
-  }
-  /* Message Box */
-  .fixed {
-    position: fixed;
-    top: 1rem;
-    right: calc(var(--spacing) * 5);
-    padding: 1rem;
-  }
+}
+
+.fruits {
+  background-color: rgb(198, 246, 213, 0.1);
+}
+
+.veggie {
+  margin-left: 0.5rem;
+  width: 60%;
+  background-color: rgb(154, 230, 180, 0.1);
+  /* align-self: flex-end; */
   
-  .error {
-    background-color: rgb(255, 70, 70);
-    border: 1px solid rgb(0, 0, 0, 0.5);
-    border-radius: 15px;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-  }
-  
-  .check {
-    background-color: rgb(40, 200, 120);
-    border: 1px solid rgb(0, 0, 0, 0.5);
-    border-radius: 15px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-  }
-  /*  */
-  
-  /* komplett durchsichtig  */
-  .fridge {
-    background-color: transparent;
-    display: flex;
-    padding: 2rem;
-    gap: 2rem;
-  }
-  
-  /* Left Side */
-  .leftSide {
-    margin-top: 2rem;
-    width: 66%;
-    margin-bottom: 1rem;
-  }
-  
-  .dropbox {
-    height: 10rem;
-    width: 26rem;
-    margin-left: 12rem;
-    border: 1px solid rgb(0, 0, 0, 0.2);
-    border-radius: 15px;
-    padding: calc(var(--spacing) * 5);
-  }
-  
-  .frozenMeal {
-    background-color: rgb(235, 248, 255, 0.1);
-  }
-  
-  .readyMeal {
-    background-color: rgb(250, 240, 137, 0.1);
-  }
-  
-  .meatFishDairy {
-    background-color: rgb(254, 178, 178, 0.1);
-    height: 9rem;
-  }
-  
-  .fruitAndVeggie {
-    display: flex;
-    width: 75%;
-  }
-  
-  .fruits {
-    background-color: rgb(198, 246, 213, 0.1);
-  }
-  
-  .veggie {
-    margin-left: 0.5rem;
-    width: 60%;
-    background-color: rgb(154, 230, 180, 0.1);
-  }
-  
-  /* Right Side */
-  .rightSide {
-    margin-top: 3rem;
-    margin-left: -12rem;
-  }
-  
-  .eggs {
-    background-color: rgb(254, 215, 170, 0.1);
-    border: 1px solid rgb(0, 0, 0, 0.2);
-    border-radius: 15px;
-    width: 20rem;
-    height: 8rem;
-  }
-  
-  .sauces {
-    background-color: rgb(233, 216, 253, 0.1);
-    border: 1px solid rgb(0, 0, 0, 0.2);
-    border-radius: 15px;
-    width: 20rem;
-    height: 8rem;
-    margin-top: 2rem;
-  }
-  
-  .drinks {
-    background-color: rgb(235, 248, 255, 0.1);
-    border: 1px solid rgb(0, 0, 0, 0.2);
-    border-radius: 15px;
-    width: 20rem;
-    height: 14rem;
-    margin-top: 8rem;
-  }
-  
-  /* Draggable Items */
-  .itemCards {
-    margin-top: 10rem;
-  }
-  .grid {
-    display: grid;
-  }
-  
-  .grid-cols-4 {
-    grid-template-columns: repeat(8, 1fr);
-  }
-  
-  .shadow-md {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  }
-  
-  .transform {
-    transform: scale(1);
-  }
-  
-  .hover\:scale-105:hover {
-    transform: scale(1.05);
-  }
-  
-  .transition-transform {
-    transition: transform 0.2s ease-in-out;
-  }
-  
+
+}
+
+/* Right Side */
+.rightSide {
+  margin-top: 3rem;
+  /* margin-left: -12rem; */
+  /*margin-left: auto; /* Schiebt die rechte Seite an den rechten Rand */
+  margin-left: 2em;
+  /*margin-right: 2rem; /* Abstand zum Rand */
+  margin-right: auto;
+
+  transform: perspective(1000px) rotateY(-10deg); /* Kippt die rechte Seite nach vorne */
+  transform-origin: left center; /* Drehpunkt ist die linke Seite */
+}
+
+.eggs {
+  background-color: rgb(254, 215, 170, 0.1);
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 15px;
+  width: 20rem;
+  height: 8rem;
+  margin-top: -1rem;
+
+  transform: perspective(1000px) rotateY(-35deg); /* Kippt die rechte Seite nach vorne*/
+  transform-origin: left center; /* Drehpunkt ist die linke Seite */
+  /* transform: perspective(1000px) rotateY(-20eg) rotateX(20deg); Neigung nach vorne */
+
+  /* margin-left: -5rem; */
+}
+
+.sauces {
+  background-color: rgb(233, 216, 253, 0.1);
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 15px;
+  width: 20rem;
+  height: 8rem;
+  margin-top: 5rem;
+  /* margin-top: 2rem; */
+
+  transform: perspective(1000px) rotateY(-35deg); /* Kippt die rechte Seite nach vorne*/
+  transform-origin: left center; /* Drehpunkt ist die linke Seite */
+  /* transform: perspective(1000px) rotateY(-50deg) rotateX(5deg); Neigung nach vorne */
+
+  /* margin-left: -1rem; */
+}
+
+.drinks {
+  background-color: rgb(235, 248, 255, 0.1);
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  border-radius: 15px;
+  width: 22rem;
+  height: 14rem;
+  margin-top: 14rem;
+
+  transform: perspective(1000px) rotateY(-35deg); /* Kippt die rechte Seite nach vorne*/
+  transform-origin: left center; /*Drehpunkt ist die linke Seite
+  /* transform: perspective(1000px) rotateY(-10deg) rotateX(5deg); Neigung nach vorne */
+
+  margin-left: -2rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.transform {
+  transform: scale(1);
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.transition-transform {
+  transition: transform 0.2s ease-in-out;
+}
