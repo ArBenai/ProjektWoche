@@ -7,7 +7,7 @@ const GameOver = ({ score, onRestart, message }) => {
       <div className='game-over-content'>
       <h1>Game Over</h1>
       <p>{message}</p>
-      <p>Dein Score: {score}</p>
+      <p className='score' >Dein Score: {score}</p>
       <button onClick={onRestart}>Neustart</button>
     </div>
     </div>

@@ -6,7 +6,7 @@
     border-radius: 5px; /* Abgerundete Ecken */
     overflow: hidden; /* Inhalt, der über den Rand hinausgeht, wird abgeschnitten */
     position: relative; /* Position für den Text */
-    margin: 1rem auto;
+    margin: 0 auto;
   }  
   /* Fortschrittsbalken */
   .progress {

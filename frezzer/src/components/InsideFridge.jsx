@@ -59,7 +59,7 @@ const InsideFridge = () => {
     if (gameOver || gameWon || !draggingItem) return; 
 
     if (draggingItem.type === compartmentType) {
-      setShowMessage({ text: "Correct placement!", isError: false });
+      setShowMessage({ text: "Super eingeräumt!", isError: false });
       setItems(items.filter((item) => item.id !== draggingItem.id));
       setCompartments({
         ...compartments,
@@ -74,12 +74,12 @@ const InsideFridge = () => {
         if (newAttempts >= 3) {
           setGameOver(true); 
           setShowMessage({
-            text: "Game Over! Too many wrong attempts.",
+            text: "Game Over! Zu viele Sachen falsch eingeräumt!",
             isError: true,
           });
         } else {
           setShowMessage({
-            text: "Wrong compartment! Try again.",
+            text: "Falsches Fach! Versuche es erneut!",
             isError: true,
           });
         }
@@ -115,20 +115,21 @@ const InsideFridge = () => {
   useEffect(() => {
     if (progress === 100) {
       setGameWon(true); 
-      setShowMessage({ text: "Congratulations! You've won!", isError: false });
+      setShowMessage({ text: "Glückwunsch, du hast gewonnen", isError: false });
     }
   }, [progress]);
 
   if (gameOver) {
-    return <GameOver score={score} onRestart={restartGame} message="Too many wrong attempts!" />;
+    return <GameOver score={score} onRestart={restartGame} message="Mist! zu viele Falsch eingeräumt!" />;
   }
 
   if (gameWon) {
-    return <GameOver score={score} onRestart={restartGame} message="Congratulations! You've won!" />;
+    return <GameOver score={score} onRestart={restartGame} message="Glückwunsch, du hast gewonnen !" />;
   }
 
   return (
     <div className="container">
+      <br />
       <ProgressBar progress={progress} />
       <WrongItems wrongAttempts={incorrectAttempts} />
       <div className="max-w-7xl mx-auto">

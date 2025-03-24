@@ -27,10 +27,14 @@
   position: absolute;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
   left: 10rem;
   align-items: center;
   justify-content: center;
   max-height: calc(100vh - 12rem); 
-  overflow-y: auto; 
+  overflow-y: auto;  
+  border: 2px solid gold;
+  border-radius: 3rem;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255, 0.25);
 }
